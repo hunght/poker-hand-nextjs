@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             <RowContainer key={item.handDisplayString}>
               {item.handDisplayString}
               ===
-              {item.rankValue}
+              {item.rankDescription}
             </RowContainer>
           ))}
         </ColumnContainer>
