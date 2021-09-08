@@ -1,9 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
-import { reducer as cards } from './cards'
+import { reducer as pokerHand } from './pokerHand'
 
 const rootReducer = combineReducers({
-  cards,
+  pokerHand,
 })
 
 export type RootState = ReturnType<typeof rootReducer>
