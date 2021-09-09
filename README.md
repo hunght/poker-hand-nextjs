@@ -1,5 +1,6 @@
 This is poker hand evaluator base on this article (https://javascript.plainenglish.io/building-a-poker-hand-evaluator-without-conditional-branches-556c39c8e33e
 )
+App've deployed at https://poker-hand-nextjs.vercel.app
 
 ## Getting Started
 
