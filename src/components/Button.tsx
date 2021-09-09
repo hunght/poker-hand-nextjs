@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Button = styled.button<{ primary?: boolean }>`
   /* Adapt the colors based on primary prop */
@@ -14,4 +14,4 @@ export const Button = styled.button<{ primary?: boolean }>`
   &:hover {
     background: ${(props) => (props.disabled ? 'lightgray' : 'lightpink')};
   }
-`
+`;
