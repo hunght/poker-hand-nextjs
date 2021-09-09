@@ -10,6 +10,7 @@ import { isEmpty } from 'ramda'
 const Home: React.FC = () => {
   const cards = useAppSelector(selectCardsForDeck)
   const currentRankHand = useAppSelector((state) => state.pokerHand.currentRankHand)
+  const showPokerHand = useAppSelector((state) => state.pokerHand.showPokerHand)
   const history = useAppSelector((state) => state.pokerHand.history)
   const dispatch = useAppDispatch()
 
@@ -25,7 +26,9 @@ const Home: React.FC = () => {
       <Button primary onClick={onClickShuffle}>
         Shuffle cards
       </Button>
-      <Button onClick={onClickReset}>Reset cards</Button>
+      <Button disabled={!showPokerHand} onClick={onClickReset}>
+        Reset cards
+      </Button>
       {cards.map((cardRow, index) => (
         <RowContainer key={index}>
           {cardRow.map((card) => (
