@@ -45,9 +45,7 @@ const Home: React.FC = () => {
           <RowContainer key={index}>
             {cardRow.map((card) => (
               <Card key={card.image}>
-                <ImageShadow>
-                  <Image src={card.image} alt="me" width="122" height="171" />
-                </ImageShadow>
+                <Image src={card.image} alt="me" width="122" height="171" />
               </Card>
             ))}
           </RowContainer>
@@ -88,10 +86,7 @@ const ColumnContainer = styled.div`
 `;
 
 const Card = styled.div`
-  padding: 5px;
-`;
-
-const ImageShadow = styled.div`
+  margin: 5px;
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
   border-radius: 6px;
   width: 122px;
