@@ -76,7 +76,7 @@ export const rankHand = (hand: number[]): RankHand => {
 };
 export const handDisplay = (hand: number[]): DeckType[] => {
   const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-  const suits = ['spades', 'diamonds', 'clubs', 'hearts'];
+  const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
   const deck: DeckType[] = hand.map((item) => ({
     value: values[item % NUM_VALUES_IN_DECK],
     suit: suits[Math.floor(item / NUM_VALUES_IN_DECK)],
@@ -89,7 +89,7 @@ export const handDisplay = (hand: number[]): DeckType[] => {
 
 export const handDisplayAsString = (hand: number[]): string => {
   const values = '23456789TJQKA';
-  const suits = [`♠︎`, `♦︎`, `♣︎`, `♥︎`];
+  const suits = [`♣︎`, `♦︎`, `♥︎`, `♠︎`];
   return hand
     .map(
       (item) =>
