@@ -38,7 +38,7 @@ const Home: React.FC = () => {
       {currentRankHand && <RowContainer>Rank name: {currentRankHand.rankDescription}</RowContainer>}
       {!isEmpty(history) && (
         <ColumnContainer>
-          History:
+          History: (orderby: Rank Value)
           {history.map((item) => (
             <RowContainer key={item.handDisplayString}>
               {item.handDisplayString}
