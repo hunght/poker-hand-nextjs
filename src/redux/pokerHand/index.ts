@@ -9,7 +9,7 @@ import { PokerHandState } from './type';
 const initialState: PokerHandState = {
   showPokerHand: false,
   error: '',
-  cards: range(0, 51),
+  cards: range(0, 52),
   history: [],
 };
 
