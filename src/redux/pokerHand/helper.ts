@@ -89,7 +89,7 @@ export const handDisplay = (hand: number[]): DeckType[] => {
 
 export const handDisplayAsString = (hand: number[]): string => {
   const values = '23456789TJQKA';
-  const suits = [`♣︎`, `♦︎`, `♥︎`, `♠︎`];
+  const suits = [`♠︎`, `♦︎`, `♣︎`, `♥︎`];
   return hand
     .map(
       (item) =>
