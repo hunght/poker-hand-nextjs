@@ -1,5 +1,12 @@
 // https://javascript.plainenglish.io/building-a-poker-hand-evaluator-without-conditional-branches-556c39c8e33e
 
+// Card Matrix
+// .  2  3  4  5  6  7  8  9  T  J  Q  K  A
+// C 00 01 02 03 04 05 06 07 08 09 10 11 12
+// D 13 14 15 16 17 18 19 20 21 22 23 24 25
+// H 26 27 28 29 30 31 32 33 34 35 36 37 38
+// S 39 40 41 42 43 44 45 46 47 48 49 50 51
+
 import { DeckType, RankHand, Ranks } from './type';
 const NUM_CARDS_IN_DECK = 52;
 const NUM_VALUES_IN_DECK = 13;
@@ -9,6 +16,7 @@ const ACE_VALUE = Math.pow(2, 13);
 const STRAIGHT_LOW_ACE_INDICATOR = parseInt('10000000011110', 2);
 const TEN_CARD_POSITION = 8;
 const RANK_BASE_VALUE = Math.pow(10, 9);
+const CARD_VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
 export const buildDeck = (): number[] => {
   const deck = Array.from(new Array(NUM_CARDS_IN_DECK), (_, index) => index);
@@ -60,6 +68,7 @@ export const rankHand = (hand: number[]): RankHand => {
     rankDescription = key;
     return !ranks[rankKey];
   });
+
   rankValue +=
     rankIndex * RANK_BASE_VALUE -
     ((rankValue === STRAIGHT_LOW_ACE_INDICATOR && ACE_VALUE - 1) || 0);
@@ -67,6 +76,7 @@ export const rankHand = (hand: number[]): RankHand => {
     .split('_')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+
   return {
     rankValue,
     ranks,
@@ -74,26 +84,25 @@ export const rankHand = (hand: number[]): RankHand => {
     handDisplayString: handDisplayAsString(hand),
   };
 };
+
 export const handDisplay = (hand: number[]): DeckType[] => {
-  const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
   const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
   const deck: DeckType[] = hand.map((item) => ({
-    value: values[item % NUM_VALUES_IN_DECK],
+    value: CARD_VALUES[item % NUM_VALUES_IN_DECK],
     suit: suits[Math.floor(item / NUM_VALUES_IN_DECK)],
     image: `/images/playing-cards/${suits[Math.floor(item / NUM_VALUES_IN_DECK)]}_${
-      values[item % NUM_VALUES_IN_DECK]
+      CARD_VALUES[item % NUM_VALUES_IN_DECK]
     }.png`,
   }));
   return deck;
 };
 
 export const handDisplayAsString = (hand: number[]): string => {
-  const values = '23456789TJQKA';
   const suits = [`♣︎`, `♦︎`, `♥︎`, `♠︎`];
   return hand
     .map(
       (item) =>
-        `${values[item % NUM_VALUES_IN_DECK]}${suits[Math.floor(item / NUM_VALUES_IN_DECK)]}`
+        `${CARD_VALUES[item % NUM_VALUES_IN_DECK]}${suits[Math.floor(item / NUM_VALUES_IN_DECK)]}`
     )
     .join(' ');
 };
